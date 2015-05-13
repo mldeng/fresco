@@ -146,7 +146,7 @@ def makeNdkTasks(String name) {
     task "ndk_build_$name"(type: Exec) {
         inputs.file("src/main/jni/$name")
         outputs.dir("$buildDir/$name")
-        commandLine getNdkBuildCommand(),
+        commandLine '/Users/damon/Documents/android-ndk-r10d/ndk-build',
             'NDK_APPLICATION_MK=../Application.mk',
             'NDK_OUT=' + temporaryDir,
             "NDK_LIBS_OUT=$buildDir/$name",
@@ -155,7 +155,7 @@ def makeNdkTasks(String name) {
     }
 
     task "ndk_clean_$name"(type: Exec) {
-        commandLine getNdkBuildCommand(),
+        commandLine '/Users/damon/Documents/android-ndk-r10d/ndk-build',
             'NDK_APPLICATION_MK=../Application.mk',
             'NDK_OUT=' + temporaryDir,
             "NDK_LIBS_OUT=$buildDir/$name",
